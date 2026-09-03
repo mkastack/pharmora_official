@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { DownloadCloud, Globe, ShieldCheck, Mail, Phone, MapPin, Heart } from "lucide-react";
+import { PHARMORA_CONSOLE_URL, PHARMORA_WEB_APP_URL } from "@/lib/utils";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,6 +23,12 @@ export default function Footer() {
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-teal-400 font-mono">
                 Windows 10 & 11 .exe
+              </span>
+              <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-500 font-mono">
+                macOS — coming soon
+              </span>
+              <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-500 font-mono">
+                Linux — coming soon
               </span>
               <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-teal-400 font-mono">
                 Web Cloud Architecture
@@ -80,13 +87,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/web" className="hover:text-white transition-colors">
-                  Pharmora Web Platform
+                <Link href="/downloads" className="hover:text-white transition-colors">
+                  Pharmora for macOS (Coming Soon)
                 </Link>
               </li>
               <li>
                 <Link href="/downloads" className="hover:text-white transition-colors">
-                  Download Center (.exe)
+                  Pharmora for Linux (Coming Soon)
+                </Link>
+              </li>
+              <li>
+                <a href={PHARMORA_WEB_APP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Pharmora Web Platform
+                </a>
+              </li>
+              <li>
+                <Link href="/downloads" className="hover:text-white transition-colors">
+                  Download Center
                 </Link>
               </li>
               <li>
@@ -147,17 +164,21 @@ export default function Footer() {
         {/* Bottom Sub-Strip */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {currentYear} Pharmora Platform Technologies Ltd. All rights reserved.
+            &copy; {currentYear} Pharmora Platform Technologies Ltd. All rights reserved.
           </div>
           <div className="flex items-center gap-4 text-xs">
+            <a href={PHARMORA_CONSOLE_URL} rel="noopener noreferrer" className="text-teal-400 font-semibold hover:text-teal-300 transition-colors">
+              Sign In
+            </a>
+            <span>&middot;</span>
             <Link href="/privacy" className="hover:text-slate-300">
               Privacy Policy
             </Link>
-            <span>·</span>
+            <span>&middot;</span>
             <Link href="/terms" className="hover:text-slate-300">
               Terms
             </Link>
-            <span>·</span>
+            <span>&middot;</span>
             <Link href="/help" className="hover:text-slate-300">
               Security
             </Link>

@@ -4,9 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { PRICING_PLANS } from "@/lib/data";
 import { Check, Sparkles, HelpCircle, ArrowRight, ShieldCheck } from "lucide-react";
+import PlanCheckoutModal from "./PlanCheckoutModal";
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("annual");
+  const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+  const [selectedPlanId, setSelectedPlanId] = useState<string>("professional");
 
   return (
     <section className="py-24 bg-white" id="pricing">
@@ -122,9 +125,13 @@ export default function PricingSection() {
 
                 {/* Plan CTA Button */}
                 <div>
-                  <Link
-                    href={plan.id === "enterprise" ? "/contact" : "/downloads"}
-                    className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl font-bold text-sm transition-all duration-150 ${
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedPlanId(plan.id);
+                      setIsCheckoutModalOpen(true);
+                    }}
+                    className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl font-bold text-sm transition-all duration-150 active:scale-[0.98] ${
                       isPopular
                         ? "bg-[#0D9488] hover:bg-[#0F766E] text-white shadow-lg shadow-teal-500/30"
                         : "bg-white hover:bg-[#CCFBF1] text-[#0B1739] border border-[#E6EAEF] hover:border-[#99F6E4]"
@@ -132,7 +139,7 @@ export default function PricingSection() {
                   >
                     <span>{plan.ctaText}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </button>
                 </div>
 
               </div>
@@ -155,8 +162,14 @@ export default function PricingSection() {
             Need a custom deployment proposal? Talk to us →
           </Link>
         </div>
-
       </div>
+
+      <PlanCheckoutModal
+        isOpen={isCheckoutModalOpen}
+        onClose={() => setIsCheckoutModalOpen(false)}
+        initialPlanId={selectedPlanId}
+        initialBillingCycle={billingCycle}
+      />
     </section>
   );
 }

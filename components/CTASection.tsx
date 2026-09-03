@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DownloadCloud, Globe, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { PHARMORA_WEB_APP_URL } from "@/lib/utils";
 
 export default function CTASection() {
   return (
@@ -47,13 +48,15 @@ export default function CTASection() {
           </Link>
 
           {/* Web App Access */}
-          <Link
-            href="/web"
+          <a
+            href={PHARMORA_WEB_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-5 rounded-2xl bg-teal-950/80 hover:bg-teal-900/90 text-white font-bold text-sm border border-teal-500/40 transition-all"
           >
             <Globe className="w-5 h-5 text-teal-400" />
             <span>Use Pharmora Online</span>
-          </Link>
+          </a>
         </div>
 
         {/* Micro Guarantee Row */}

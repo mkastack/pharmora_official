@@ -17,6 +17,7 @@ import {
   Layers,
   ArrowRight
 } from "lucide-react";
+import { PHARMORA_WEB_APP_URL } from "@/lib/utils";
 
 export default function PlatformCards() {
   return (
@@ -177,20 +178,24 @@ export default function PlatformCards() {
 
             {/* CTAs */}
             <div className="relative z-10 flex flex-wrap items-center gap-3 pt-4 border-t border-[#99F6E4]">
-              <Link
-                href="/web"
+              <a
+                href={PHARMORA_WEB_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold text-sm shadow-md shadow-[#0D9488]/20 transition-all"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Launch Web App</span>
-              </Link>
-              <Link
-                href="/web"
+              </a>
+              <a
+                href={PHARMORA_WEB_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-4 py-3 rounded-xl text-xs font-semibold text-[#0F766E] hover:text-[#0B1739] transition-colors"
               >
                 <span>Learn about Web Features</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </a>
             </div>
 
           </div>

@@ -19,7 +19,6 @@ import {
   Sparkles,
   ArrowRight,
   ExternalLink,
-  ShieldCheck,
   Building2,
   PackageCheck,
   Receipt,
@@ -35,7 +34,7 @@ import {
   HelpCircle,
   Activity,
 } from "lucide-react";
-import { PHARMORA_WEB_APP_URL } from "@/lib/utils";
+import { PHARMORA_CONSOLE_URL, PHARMORA_WEB_APP_URL } from "@/lib/utils";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Building2,
@@ -77,12 +76,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setActiveDropdown(null);
-  }, [pathname]);
 
   const handleMouseEnter = (name: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -295,8 +288,10 @@ export default function Navbar() {
           </Link>
 
           {/* Web App Link */}
-          <Link
-            href="/web"
+          <a
+            href={PHARMORA_WEB_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
               pathname === "/web"
                 ? "text-[#0D9488] bg-[#F0FDFA]"
@@ -304,7 +299,7 @@ export default function Navbar() {
             }`}
           >
             Web App
-          </Link>
+          </a>
 
           {/* Pricing */}
           <Link
@@ -386,22 +381,24 @@ export default function Navbar() {
 
         {/* Right: Actions / CTAs */}
         <div className="hidden lg:flex items-center gap-3">
-          {/* Sign in / Web App access */}
-          <Link
-            href="/web"
+          {/* Sign In — external redirect to Pharmora Console */}
+          <a
+            href={PHARMORA_CONSOLE_URL}
+            rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3.5 py-2 text-[14px] font-semibold text-[#43516A] hover:text-[#0D9488] transition-colors"
           >
             <span>Sign In</span>
-          </Link>
+          </a>
 
-          {/* Use Online Button */}
-          <Link
-            href="/web"
+          {/* Use Online — external redirect to Pharmora Console */}
+          <a
+            href={PHARMORA_CONSOLE_URL}
+            rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13.5px] font-semibold text-[#0F766E] bg-[#F0FDFA] hover:bg-[#CCFBF1] border border-[#99F6E4] hover:border-[#5EEAD4] transition-all duration-200 shadow-sm"
           >
             <span>Use Online</span>
             <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </a>
 
           {/* Download App Main Button */}
           <Link
@@ -439,14 +436,15 @@ export default function Navbar() {
                 <DownloadCloud className="w-4 h-4" />
                 <span>Download App</span>
               </Link>
-              <Link
-                href="/web"
+              <a
+                href={PHARMORA_CONSOLE_URL}
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-[#0F766E] bg-[#CCFBF1] border border-[#99F6E4] text-center"
               >
                 <Globe className="w-4 h-4" />
                 <span>Use Online</span>
-              </Link>
+              </a>
             </div>
 
             {/* Navigation Links Group */}
@@ -478,8 +476,10 @@ export default function Navbar() {
                 <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
               </Link>
 
-              <Link
-                href="/web"
+              <a
+                href={PHARMORA_WEB_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
               >
@@ -488,7 +488,7 @@ export default function Navbar() {
                   <span>Web App Platform</span>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
-              </Link>
+              </a>
 
               <Link
                 href="/pricing"

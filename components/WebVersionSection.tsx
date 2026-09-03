@@ -87,13 +87,15 @@ export default function WebVersionSection() {
                 <ExternalLink className="w-4 h-4" />
               </a>
 
-              <Link
-                href="/web"
+              <a
+                href={PHARMORA_WEB_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-5 py-3.5 rounded-2xl text-xs font-bold text-[#43516A] hover:text-[#0B1739] hover:bg-slate-100 transition-colors"
               >
                 <span>Learn about Web Security</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </a>
             </div>
 
           </div>
