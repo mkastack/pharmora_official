@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { FAQS } from "@/lib/data";
 import { ChevronDown, HelpCircle, MessageSquare } from "lucide-react";
-import Link from "next/link";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -82,12 +81,14 @@ export default function FAQSection() {
             Our pharmacy implementation engineers are ready to answer your technical questions.
           </p>
           <div className="pt-2">
-            <Link
-              href="/contact"
+            <a
+              href="https://wa.me/233257966923?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20Pharmora%20specialist."
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold text-xs shadow-sm transition-all"
             >
               <span>Speak with a Specialist</span>
-            </Link>
+            </a>
           </div>
         </div>
 

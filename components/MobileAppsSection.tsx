@@ -438,16 +438,16 @@ export default function MobileAppsSection() {
                     }
                     className={`relative flex items-center justify-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 active:scale-[0.98] shadow-sm ${
                       device === "android"
-                        ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400 ring-2 ring-emerald-400 ring-offset-2 ring-offset-[#021310] shadow-md"
+                        ? "bg-emerald-600 text-white hover:bg-emerald-500 ring-2 ring-emerald-400 ring-offset-2 ring-offset-[#021310] shadow-md"
                         : "bg-emerald-600 text-white hover:bg-emerald-500"
                     }`}
                   >
-                    <AndroidIcon className={`w-5 h-5 ${device === "android" ? "text-slate-950" : "text-white"}`} />
+                    <AndroidIcon className="w-5 h-5 text-white" />
                     <div className="text-left">
-                      <div className={`text-[10px] uppercase font-mono leading-none ${device === "android" ? "text-emerald-950 font-black" : "text-emerald-200"}`}>
+                      <div className="text-[10px] uppercase font-mono leading-none text-emerald-200">
                         {device === "android" ? "Your Device · Android" : "Android"}
                       </div>
-                      <div className="text-xs font-extrabold mt-0.5">
+                      <div className="text-xs font-extrabold mt-0.5 text-white">
                         {RIDER_APP_CONFIG.android.label}
                       </div>
                     </div>

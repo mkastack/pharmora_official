@@ -248,7 +248,7 @@ export default function SmartDownloadPage({ params }: PageProps) {
                     }
                     className={`flex items-center justify-center gap-3 px-5 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all active:scale-[0.98] ${
                       isRider
-                        ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400"
+                        ? "bg-emerald-600 text-white hover:bg-emerald-500"
                         : "bg-[#0B1739] text-white hover:bg-[#1E293B]"
                     }`}
                   >

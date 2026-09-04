@@ -186,6 +186,17 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
               <p className="text-[11px] text-center text-[#98A2B3]">
                 No credit card required. Includes 14-day full access to Desktop & Web.
               </p>
+
+              <div className="pt-2 border-t border-slate-100 text-center">
+                <a
+                  href="https://wa.me/233257966923?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20Pharmora%20specialist%20for%20a%20live%20walkthrough."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:text-emerald-700 hover:underline transition-colors"
+                >
+                  <span>💬 Prefer instant chat? Speak with a Specialist on WhatsApp</span>
+                </a>
+              </div>
             </form>
           </div>
         )}

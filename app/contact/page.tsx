@@ -49,13 +49,34 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-4 pt-4 text-xs text-[#43516A]">
+              {/* WhatsApp Direct Specialist */}
+              <a
+                href="https://wa.me/233257966923?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20Pharmora%20specialist."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-2xl bg-[#ECFDF5] border border-emerald-300 hover:border-emerald-500 hover:shadow-md transition-all flex items-center justify-between gap-3 group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 text-lg shadow-sm">
+                    💬
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0B1739] text-sm group-hover:text-emerald-700 transition-colors">Speak with a Specialist (WhatsApp)</p>
+                    <p className="text-emerald-700 font-mono text-xs font-semibold">+233 25 796 6923 · Instant Response</p>
+                  </div>
+                </div>
+                <span className="text-xs font-bold px-3.5 py-2 rounded-xl bg-emerald-600 text-white group-hover:bg-emerald-700 transition-colors whitespace-nowrap shadow-sm">
+                  Chat Now →
+                </span>
+              </a>
+
               <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E6EAEF] flex items-center gap-3">
                 <div className="w-8 h-8 rounded-xl bg-[#CCFBF1] flex items-center justify-center text-[#0D9488] flex-shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
                   <p className="font-bold text-[#0B1739]">Direct Operations Line</p>
-                  <p className="text-slate-500">+233 30 200 0000 / +233 24 100 0000</p>
+                  <p className="text-slate-500">+233 25 796 6923 / +233 24 100 0000</p>
                 </div>
               </div>
 

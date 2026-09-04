@@ -467,6 +467,24 @@ export default function Navbar() {
                     );
                   })}
                 </div>
+
+                {/* WhatsApp Specialist Quick Row */}
+                <div className="mt-2 pt-2 border-t border-slate-100">
+                  <a
+                    href="https://wa.me/233257966923?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20Pharmora%20specialist."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100/80 text-emerald-800 transition-colors"
+                  >
+                    <div className="flex items-center gap-2 text-xs font-bold">
+                      <span className="text-base">💬</span>
+                      <span>Speak with a Specialist</span>
+                    </div>
+                    <span className="text-[11px] font-mono text-emerald-700 bg-white px-2 py-0.5 rounded-md border border-emerald-200">
+                      WhatsApp
+                    </span>
+                  </a>
+                </div>
               </div>
             )}
           </div>
@@ -517,14 +535,15 @@ export default function Navbar() {
 
       {/* Mobile Drawer Navigation Sheet */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[70px] bottom-0 bg-white/95 backdrop-blur-xl border-t border-[#E6EAEF] z-40 overflow-y-auto p-6 animate-in fade-in slide-in-from-top-4 duration-300">
-          <div className="flex flex-col space-y-6 pb-12">
+        <div className="lg:hidden fixed inset-x-0 top-[70px] bottom-0 bg-gradient-to-b from-[#041D1A] via-[#042F2E] to-[#052827] z-40 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300 border-t border-teal-900/60">
+          <div className="flex flex-col space-y-5 p-5 pb-16">
+
             {/* Primary Mobile Quick CTAs */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 pt-1">
               <Link
                 href="/downloads"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#0D9488] to-[#0F766E] shadow-md shadow-[#0D9488]/20 text-center"
+                className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-[#0D9488] to-[#0F766E] shadow-lg shadow-[#0D9488]/30 text-center active:scale-[0.97] transition-all"
               >
                 <DownloadCloud className="w-4 h-4" />
                 <span>Download App</span>
@@ -533,7 +552,7 @@ export default function Navbar() {
                 href={PHARMORA_CONSOLE_URL}
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-[#0F766E] bg-[#CCFBF1] border border-[#99F6E4] text-center"
+                className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-sm font-bold text-teal-300 bg-teal-950/80 border border-teal-500/40 text-center active:scale-[0.97] transition-all"
               >
                 <Globe className="w-4 h-4" />
                 <span>Use Online</span>
@@ -541,44 +560,50 @@ export default function Navbar() {
             </div>
 
             {/* Navigation Links Group */}
-            <div className="space-y-1 pt-2">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#98A2B3] px-3 mb-2">
+            <div className="space-y-1 pt-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-teal-500/70 px-3 mb-3">
                 Navigation
               </p>
               <Link
                 href="/features"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <PackageCheck className="w-5 h-5 text-[#0D9488]" />
-                  <span>All Features</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <PackageCheck className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">All Features</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <Link
                 href="/desktop"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <Monitor className="w-5 h-5 text-[#0D9488]" />
-                  <span>Desktop App (Windows)</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <Monitor className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Desktop App (Windows)</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <Link
                 href="/#mobile-apps"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <Smartphone className="w-5 h-5 text-[#0D9488]" />
-                  <span>Mobile Apps (User &amp; Rider)</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <Smartphone className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Mobile Apps (User & Rider)</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <a
@@ -586,75 +611,101 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <Globe className="w-5 h-5 text-[#0D9488]" />
-                  <span>Web App Platform</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <Globe className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Web App Platform</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </a>
 
               <Link
                 href="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <CreditCard className="w-5 h-5 text-[#0D9488]" />
-                  <span>Pricing & Plans</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <CreditCard className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Pricing & Plans</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <Link
                 href="/installation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <DownloadCloud className="w-5 h-5 text-[#0D9488]" />
-                  <span>Installation Guide</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <DownloadCloud className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Installation Guide</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <Link
                 href="/release-notes"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <Sparkles className="w-5 h-5 text-[#0D9488]" />
-                  <span>Release Notes (v1.0.0)</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Release Notes (v1.0.0)</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <Link
                 href="/help"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <HelpCircle className="w-5 h-5 text-[#0D9488]" />
-                  <span>Help & Support</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <HelpCircle className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Help & Support</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
 
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+                className="flex items-center justify-between p-3.5 rounded-2xl hover:bg-teal-900/40 text-white font-medium border border-transparent hover:border-teal-800/50 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <Users className="w-5 h-5 text-[#0D9488]" />
-                  <span>Schedule Live Demo</span>
+                  <div className="w-8 h-8 rounded-xl bg-teal-950/80 border border-teal-800/60 flex items-center justify-center">
+                    <Users className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <span className="text-sm">Schedule Live Demo</span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+                <ArrowRight className="w-4 h-4 text-teal-600" />
               </Link>
             </div>
+
+            {/* Bottom WhatsApp CTA */}
+            <div className="pt-2 border-t border-teal-900/50">
+              <a
+                href="https://wa.me/233257966923?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20Pharmora%20specialist."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-300 font-bold text-sm hover:bg-emerald-600/30 transition-all"
+              >
+                <span className="text-lg">💬</span>
+                <span>Speak with a Specialist</span>
+              </a>
+            </div>
+
           </div>
         </div>
       )}

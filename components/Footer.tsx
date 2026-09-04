@@ -146,6 +146,17 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-slate-400">
               <li>
+                <a
+                  href="https://wa.me/233257966923?text=Hello%2C%20I%20would%20like%20to%20speak%20with%20a%20Pharmora%20specialist."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors flex items-center gap-1.5"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>WhatsApp: +233 25 796 6923</span>
+                </a>
+              </li>
+              <li>
                 <Link href="/help" className="hover:text-white transition-colors">
                   Help Center & FAQs
                 </Link>
