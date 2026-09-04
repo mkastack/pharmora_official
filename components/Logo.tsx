@@ -50,8 +50,8 @@ export default function Logo({
       </div>
 
       {/* Wordmark */}
-      <div className="flex flex-col">
-        <div className="flex items-center">
+      <div className="flex flex-col whitespace-nowrap">
+        <div className="flex items-center whitespace-nowrap">
           <span
             className={`font-extrabold tracking-tight font-sans transition-colors ${
               isLight ? "text-white" : "text-[#0B1739]"

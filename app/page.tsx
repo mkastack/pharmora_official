@@ -9,6 +9,7 @@ import HowItWorks from "@/components/HowItWorks";
 import BenefitGrid from "@/components/BenefitGrid";
 import DownloadSection from "@/components/DownloadSection";
 import WebVersionSection from "@/components/WebVersionSection";
+import MobileAppsSection from "@/components/MobileAppsSection";
 import ComparisonTable from "@/components/ComparisonTable";
 import SecuritySection from "@/components/SecuritySection";
 import Testimonials from "@/components/Testimonials";
@@ -52,7 +53,10 @@ export default function Home() {
       {/* 11. Zero-Install Web App Section */}
       <WebVersionSection />
 
-      {/* 12. Desktop vs. Web Side-by-Side Comparison */}
+      {/* 12. Get the Pharmora App (User & Rider Mobile Apps + QR) */}
+      <MobileAppsSection />
+
+      {/* 13. Desktop vs. Web Side-by-Side Comparison */}
       <ComparisonTable />
 
       {/* 13. Security & Role-Based Access Controls */}

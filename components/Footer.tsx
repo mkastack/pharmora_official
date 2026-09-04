@@ -33,6 +33,9 @@ export default function Footer() {
               <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-teal-400 font-mono">
                 Web Cloud Architecture
               </span>
+              <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-400 font-mono">
+                Android &amp; iOS Apps
+              </span>
             </div>
           </div>
 
@@ -102,8 +105,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <Link href="/download/user" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                  <span>Pharmora for Customers (App)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/download/rider" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>Pharmora Rider (Delivery)</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/downloads" className="hover:text-white transition-colors">
-                  Download Center
+                  Download Center (Desktop)
                 </Link>
               </li>
               <li>

@@ -33,6 +33,7 @@ import {
   ShoppingBag,
   HelpCircle,
   Activity,
+  Smartphone,
 } from "lucide-react";
 import { PHARMORA_CONSOLE_URL, PHARMORA_WEB_APP_URL } from "@/lib/utils";
 
@@ -55,7 +56,43 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Sparkles,
   HelpCircle,
   Activity,
+  Smartphone,
 };
+
+const MEGA_MENU_PLATFORMS = [
+  {
+    title: "Pharmora Desktop",
+    description: "High-speed counter POS for Windows 10 & 11 with receipt and barcode hardware support.",
+    href: "/desktop",
+    icon: Monitor,
+    badge: "Windows .exe",
+    external: false,
+  },
+  {
+    title: "Pharmora Web Platform",
+    description: "Cloud management console accessible from any modern web browser worldwide.",
+    href: PHARMORA_WEB_APP_URL,
+    icon: Globe,
+    badge: "Browser",
+    external: true,
+  },
+  {
+    title: "Mobile Apps (User & Rider)",
+    description: "Customer medicine delivery app and Rider dispatch app with instant QR installation.",
+    href: "/#mobile-apps",
+    icon: Smartphone,
+    badge: "Android & iOS · QR",
+    external: false,
+  },
+  {
+    title: "Download Center",
+    description: "Official installer hub for desktop and mobile releases, system specs & guides.",
+    href: "/downloads",
+    icon: DownloadCloud,
+    badge: "All Releases",
+    external: false,
+  },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -96,14 +133,14 @@ export default function Navbar() {
           : "bg-white/80 backdrop-blur-md border-b border-transparent py-5"
       }`}
     >
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 xl:gap-6">
         {/* Left: Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 min-w-max mr-2 sm:mr-3 xl:mr-6">
           <Logo size="md" />
         </div>
 
         {/* Center: Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-shrink-0">
           {/* Product Dropdown */}
           <div
             className="relative"
@@ -114,7 +151,7 @@ export default function Navbar() {
               onClick={() =>
                 setActiveDropdown(activeDropdown === "product" ? null : "product")
               }
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
+              className={`whitespace-nowrap flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-[13px] xl:text-[14px] font-medium transition-all ${
                 activeDropdown === "product"
                   ? "text-[#0D9488] bg-[#F0FDFA]"
                   : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
@@ -123,7 +160,7 @@ export default function Navbar() {
             >
               <span>Product</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === "product" ? "rotate-180 text-[#0D9488]" : "text-[#98A2B3]"
                 }`}
               />
@@ -220,7 +257,7 @@ export default function Navbar() {
               onClick={() =>
                 setActiveDropdown(activeDropdown === "solutions" ? null : "solutions")
               }
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
+              className={`whitespace-nowrap flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-[13px] xl:text-[14px] font-medium transition-all ${
                 activeDropdown === "solutions"
                   ? "text-[#0D9488] bg-[#F0FDFA]"
                   : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
@@ -228,7 +265,7 @@ export default function Navbar() {
             >
               <span>Solutions</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === "solutions" ? "rotate-180 text-[#0D9488]" : "text-[#98A2B3]"
                 }`}
               />
@@ -275,36 +312,92 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Desktop App Link */}
-          <Link
-            href="/desktop"
-            className={`px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
-              pathname === "/desktop"
-                ? "text-[#0D9488] bg-[#F0FDFA]"
-                : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
-            }`}
+          {/* Platforms Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleMouseEnter("platforms")}
+            onMouseLeave={handleMouseLeave}
           >
-            Desktop App
-          </Link>
+            <button
+              onClick={() =>
+                setActiveDropdown(activeDropdown === "platforms" ? null : "platforms")
+              }
+              className={`whitespace-nowrap flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-[13px] xl:text-[14px] font-medium transition-all ${
+                activeDropdown === "platforms"
+                  ? "text-[#0D9488] bg-[#F0FDFA]"
+                  : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
+              }`}
+            >
+              <span>Platforms</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  activeDropdown === "platforms" ? "rotate-180 text-[#0D9488]" : "text-[#98A2B3]"
+                }`}
+              />
+            </button>
 
-          {/* Web App Link */}
-          <a
-            href={PHARMORA_WEB_APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
-              pathname === "/web"
+            {activeDropdown === "platforms" && (
+              <div
+                className="absolute top-full left-0 mt-2 w-[420px] rounded-2xl bg-white border border-[#99F6E4]/80 shadow-[0_24px_60px_rgba(15,23,42,0.14)] p-3.5 animate-in fade-in slide-in-from-top-2 duration-200 z-50"
+                onMouseEnter={() => handleMouseEnter("platforms")}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="space-y-1">
+                  {MEGA_MENU_PLATFORMS.map((item) => {
+                    const IconComponent = item.icon;
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                        className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F0FDFA] border border-transparent hover:border-[#99F6E4] transition-all"
+                      >
+                        <div className="p-2 rounded-lg bg-[#F8FAFC] group-hover:bg-white text-[#0D9488] shadow-sm border border-slate-100 group-hover:border-[#99F6E4]">
+                          <IconComponent className="w-4 h-4" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[13.5px] font-semibold text-[#0B1739] group-hover:text-[#0D9488]">
+                              {item.title}
+                            </span>
+                            {item.badge && (
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#CCFBF1] text-[#0F766E]">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[11.5px] text-[#667085] mt-0.5 line-clamp-1">
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Apps Link */}
+          <Link
+            href="/#mobile-apps"
+            className={`whitespace-nowrap flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl text-[13px] xl:text-[14px] font-medium transition-all ${
+              pathname === "/download/user" || pathname === "/download/rider"
                 ? "text-[#0D9488] bg-[#F0FDFA]"
                 : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
             }`}
           >
-            Web App
-          </a>
+            <span>Mobile Apps</span>
+            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#CCFBF1] text-[#0F766E] border border-[#99F6E4]/70 leading-none">
+              QR
+            </span>
+          </Link>
 
           {/* Pricing */}
           <Link
             href="/pricing"
-            className={`px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
+            className={`whitespace-nowrap px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl text-[13px] xl:text-[14px] font-medium transition-all ${
               pathname === "/pricing"
                 ? "text-[#0D9488] bg-[#F0FDFA]"
                 : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
@@ -323,7 +416,7 @@ export default function Navbar() {
               onClick={() =>
                 setActiveDropdown(activeDropdown === "resources" ? null : "resources")
               }
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[14.5px] font-medium transition-all ${
+              className={`whitespace-nowrap flex items-center gap-1 xl:gap-1.5 px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-[13px] xl:text-[14px] font-medium transition-all ${
                 activeDropdown === "resources"
                   ? "text-[#0D9488] bg-[#F0FDFA]"
                   : "text-[#43516A] hover:text-[#0B1739] hover:bg-slate-50"
@@ -331,7 +424,7 @@ export default function Navbar() {
             >
               <span>Resources</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === "resources" ? "rotate-180 text-[#0D9488]" : "text-[#98A2B3]"
                 }`}
               />
@@ -380,12 +473,12 @@ export default function Navbar() {
         </nav>
 
         {/* Right: Actions / CTAs */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 flex-shrink-0">
           {/* Sign In — external redirect to Pharmora Console */}
           <a
             href={PHARMORA_CONSOLE_URL}
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3.5 py-2 text-[14px] font-semibold text-[#43516A] hover:text-[#0D9488] transition-colors"
+            className="whitespace-nowrap flex items-center px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13.5px] font-semibold text-[#43516A] hover:text-[#0D9488] transition-colors"
           >
             <span>Sign In</span>
           </a>
@@ -394,7 +487,7 @@ export default function Navbar() {
           <a
             href={PHARMORA_CONSOLE_URL}
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13.5px] font-semibold text-[#0F766E] bg-[#F0FDFA] hover:bg-[#CCFBF1] border border-[#99F6E4] hover:border-[#5EEAD4] transition-all duration-200 shadow-sm"
+            className="whitespace-nowrap flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold text-[#0F766E] bg-[#F0FDFA] hover:bg-[#CCFBF1] border border-[#99F6E4] hover:border-[#5EEAD4] transition-all duration-200 shadow-sm"
           >
             <span>Use Online</span>
             <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -403,7 +496,7 @@ export default function Navbar() {
           {/* Download App Main Button */}
           <Link
             href="/downloads"
-            className="relative group flex items-center gap-2 px-4 py-2 rounded-xl text-[13.5px] font-semibold text-white bg-gradient-to-r from-[#0D9488] to-[#0F766E] hover:from-[#0F766E] hover:to-[#0D9488] shadow-md shadow-[#0D9488]/20 hover:shadow-lg hover:shadow-[#0D9488]/30 active:scale-[0.98] transition-all duration-200"
+            className="whitespace-nowrap relative group flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 rounded-xl text-xs xl:text-[13px] font-semibold text-white bg-gradient-to-r from-[#0D9488] to-[#0F766E] hover:from-[#0F766E] hover:to-[#0D9488] shadow-md shadow-[#0D9488]/20 hover:shadow-lg hover:shadow-[#0D9488]/30 active:scale-[0.98] transition-all duration-200"
           >
             <DownloadCloud className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
             <span>Download App</span>
@@ -472,6 +565,18 @@ export default function Navbar() {
                 <div className="flex items-center gap-3">
                   <Monitor className="w-5 h-5 text-[#0D9488]" />
                   <span>Desktop App (Windows)</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
+              </Link>
+
+              <Link
+                href="/#mobile-apps"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F0FDFA] text-[#0B1739] font-medium"
+              >
+                <div className="flex items-center gap-3">
+                  <Smartphone className="w-5 h-5 text-[#0D9488]" />
+                  <span>Mobile Apps (User &amp; Rider)</span>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#98A2B3]" />
               </Link>

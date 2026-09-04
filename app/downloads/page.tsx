@@ -14,6 +14,8 @@ import {
   Info,
   ExternalLink,
   ArrowRight,
+  Smartphone,
+  QrCode,
 } from "lucide-react";
 import { SYSTEM_REQUIREMENTS, RELEASE_HISTORY } from "@/lib/data";
 import {
@@ -339,6 +341,36 @@ export default function DownloadsPage() {
             </button>
           </div>
 
+        </div>
+
+        {/* Mobile Apps Cross-Link Banner */}
+        <div className="mb-14 rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-[#042F2E] via-[#052827] to-[#041D1A] text-white border border-teal-500/20 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-400 flex-shrink-0">
+              <Smartphone className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
+                <QrCode className="w-3 h-3" />
+                Mobile Apps Available
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white">
+                Looking for the Pharmora Customer or Rider Mobile Apps?
+              </h3>
+              <p className="text-xs sm:text-sm text-teal-200/80 mt-0.5">
+                Install on Android and iOS using our camera QR codes and smart download routes.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 flex-shrink-0 w-full md:w-auto">
+            <Link
+              href="/#mobile-apps"
+              className="flex-1 md:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold text-xs sm:text-sm shadow-md transition-all"
+            >
+              <span>View Mobile Apps &amp; QR Codes</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
         {/* Trust strip */}
